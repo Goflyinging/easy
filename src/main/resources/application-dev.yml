@@ -1,0 +1,12 @@
+server:
+    port: 8082 #启动端口
+# SPRING PROFILES
+spring:
+    # DATASOURCE
+    datasource:
+        driverClass: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1/demo?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: root
+        password: 1234ROOT.mysql
+
+

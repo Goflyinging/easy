@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <!-- 引入配置文件 -->
+  <!--<properties resource="init.properties"/>-->
+  <!-- 一个数据库一个context -->
+  <context id="my" targetRuntime="MyBatis3">
+    <commentGenerator>
+      <property name="suppressDate" value="true"/>
+      <property name="suppressAllComments" value="true"/>
+    </commentGenerator>
+
+    <!--<property name="beginningDelimiter" value="`"/>-->
+    <!--<property name="endingDelimiter" value="`"/>-->
+
+    <!--<plugin type="tk.mybatis.mapper.generator.MapperPlugin">-->
+    <!--<property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>-->
+    <!--</plugin>-->
+    <!-- jdbc连接 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+      connectionURL="jdbc:mysql://127.0.0.1/demo?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false"
+      userId="root"
+      password="1234ROOT.mysql"/>
+    <!-- 生成实体类地址 -->
+    <javaModelGenerator targetPackage="com.model"
+      targetProject="src/main/java">
+      <property name="enableSubPackages" value="true"/>
+      <!--<property name="trimStrings" value="true"/>-->
+    </javaModelGenerator>
+    <!-- 生成mapper文件 -->
+    <sqlMapGenerator targetPackage="mybatis.mapper"
+      targetProject="src/main/resources">
+      <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
+    <!-- 生成mapxml文件 -->
+    <javaClientGenerator targetPackage="com.mapper"
+      targetProject="src/main/java" type="XMLMAPPER">
+      <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+
+    <!-- 配置表信息 -->
+    <!--下面你可以重复添加对应多个表-->
+    <!--后面选项：是否生成 example类 -->
+    <table tableName="demo" domainObjectName="ChannelAccess"
+      enableCountByExample="false" enableUpdateByExample="false"
+      enableDeleteByExample="false" enableSelectByExample="false"
+      selectByExampleQueryId="false">
+    </table>
+
+  </context>
+</generatorConfiguration>
